@@ -17,7 +17,7 @@ function App() {
 					slug: topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1),
 				};
 			});
-			console.log("updatedTopics: ", updatedTopics);
+			
 			setTopics(updatedTopics);
 		});
 	}, []);
