@@ -14,7 +14,10 @@ function ArticlesList({ topic = "", topicDescription }) {
 			await fetchArticles(topic.toLowerCase()).then((articlesData) => {
 				setArticles(articlesData);
 			});
-			setIsLoading(false);
+			setTimeout(() => {
+				console.log("Test");
+				setIsLoading(false);
+			}, 100);
 		};
 		callApi();
 	}, [topic]);
