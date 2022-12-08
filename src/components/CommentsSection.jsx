@@ -2,17 +2,27 @@ import { useState } from "react";
 import { fetchCommentsSection } from "../utils/api";
 import { useEffect } from "react";
 import { BsHandThumbsUp } from "react-icons/bs";
+import Loading from "./Loading";
 
 function CommentsSection({ article_id }) {
 	const [comments, setComments] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
-		fetchCommentsSection(article_id).then((commentData) => {
+        const callApi = async () => {
+			setIsLoading(true);
+			await fetchCommentsSection(article_id).then((commentData) => {
 			setComments(commentData);
 		});
+        setIsLoading(false);
+    }
+    callApi()
 	}, [article_id]);
 
-	console.log(comments);
+	if (isLoading) {
+		return <Loading />;
+	}
+
 	return (
 		<div className="each-comment">
 			{comments.map((comment) => {

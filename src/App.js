@@ -5,11 +5,13 @@ import { fetchTopics } from "./utils/api";
 import Navbar from "./components/Navbar";
 import ArticlesList from "./components/ArticlesList";
 import Topics from "./components/Topics";
-import ArticlePage from "./components/ArticlePage"
+import ArticlePage from "./components/ArticlePage";
 import "./App.css";
+
 
 function App() {
 	const [topics, setTopics] = useState([]);
+
 	useEffect(() => {
 		fetchTopics().then((topicData) => {
 			const updatedTopics = topicData.map((topic) => {
@@ -18,7 +20,7 @@ function App() {
 					slug: topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1),
 				};
 			});
-			
+
 			setTopics(updatedTopics);
 		});
 	}, []);
@@ -27,10 +29,15 @@ function App() {
 		<div className="App">
 			<Navbar topics={topics} />
 			<Routes>
-				<Route path="/" element={<ArticlesList />} />
+				<Route
+					path="/"
+					element={
+						<ArticlesList />
+					}
+				/>
 				<Route path="/topic/:topic" element={<Topics topics={topics} />} />
 				<Route path="/articles" element={<ArticlesList />} />
-				<Route path="/articles/:article_id" element={<ArticlePage/>}/>
+				<Route path="/articles/:article_id" element={<ArticlePage />} />
 			</Routes>
 		</div>
 	);

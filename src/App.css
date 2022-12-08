@@ -45,7 +45,6 @@ a :visited {
 	justify-content: center;
 	background-color: #e5e5e5;
 	text-align: center;
-	height: 100vh;
 	/* grid-template-columns: 100px 50px 100px;
 	grid-template-rows: 80px auto 80px;
 	column-gap: 10px;
@@ -70,5 +69,10 @@ a :visited {
 
 .h1 {
 	padding: 10px;
+	text-align: center;
+}
+
+.loading {
+
 	text-align: center;
 }
