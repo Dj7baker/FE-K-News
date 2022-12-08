@@ -2,17 +2,29 @@ import { fetchSingleArticle } from "../utils/api";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./articlePage.css"
+import CommentsSection from "./CommentsSection";
+import Loading from "./Loading";
 
 
 function ArticlePage() {
 	const [singleArticle, setSingleArticle] = useState({});
+	const [isLoading, setIsLoading] = useState(false);
 	const { article_id } = useParams();
 
 	useEffect(() => {
-		fetchSingleArticle(article_id).then((articleData) => {
+		const callApi = async () => {
+			setIsLoading(true);
+		await fetchSingleArticle(article_id).then((articleData) => {
 			setSingleArticle(articleData);
 		});
+		setIsLoading(false);
+	}
+		callApi()
 	}, [article_id]);
+
+	if (isLoading) {
+		return <Loading />;
+	}
 
 	return (
 		<div className="articlePage">
@@ -31,6 +43,7 @@ function ArticlePage() {
 			</section>
 			<section>
 				<h3 className="comments">Comments</h3>
+				<CommentsSection article_id={article_id}/>
 			</section>
 		</div>
 	);
