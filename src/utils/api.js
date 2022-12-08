@@ -25,4 +25,10 @@ export const fetchTopics = () => {
       return res.data.article;
     });
   };
+
+  export const fetchCommentsSection = (article_id) => {
+    return myApi.get(`/articles/${article_id}/comments`).then((res) => {
+      return res.data.comments;
+    });
+  };
   

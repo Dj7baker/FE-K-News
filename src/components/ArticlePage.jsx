@@ -2,6 +2,7 @@ import { fetchSingleArticle } from "../utils/api";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./articlePage.css"
+import CommentsSection from "./CommentsSection";
 
 
 function ArticlePage() {
@@ -31,6 +32,7 @@ function ArticlePage() {
 			</section>
 			<section>
 				<h3 className="comments">Comments</h3>
+				<CommentsSection article_id={article_id}/>
 			</section>
 		</div>
 	);
