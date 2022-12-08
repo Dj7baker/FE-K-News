@@ -19,4 +19,10 @@ export const fetchTopics = () => {
       return res.data.topic;
     });
   };
+
+  export const fetchSingleArticle = (article_id) => {
+    return myApi.get(`/articles/${article_id}`).then((res) => {
+      return res.data.article;
+    });
+  };
   

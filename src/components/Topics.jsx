@@ -3,6 +3,7 @@ import ArticlesList from "./ArticlesList";
 
 const Topics = ({ topics }) => {
 	const { topic } = useParams();
+
 	const topicDescription = topics.filter((singleTopic) => {
 		return singleTopic.slug === topic;
 	})[0]?.description;

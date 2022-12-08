@@ -1,0 +1,46 @@
+*{
+   
+    margin: 0;
+    padding: 0;
+}
+.articlePage {
+    background-color: #e5e5e5;
+    height: 100vh;
+    align-items: center;
+    padding: 20px;
+}
+
+.h1 {
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+   
+}
+
+.h3 {
+    text-align: left;
+    padding: 5px;
+    margin: 5px;
+}
+
+.count {
+    padding: 3px;
+    margin: 7px;
+  
+   display: inline;
+   background-color: #4a4e69;
+}
+
+.comments {
+    padding: 3px;
+    margin: 7px;
+    display: flex;
+    background: #4a4e69;
+}
+
+.body {
+    margin: 10px;
+    padding: 10px;
+    text-align: left;
+    font-size: 1.2em;
+}
