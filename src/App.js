@@ -5,6 +5,7 @@ import { fetchTopics } from "./utils/api";
 import Navbar from "./components/Navbar";
 import ArticlesList from "./components/ArticlesList";
 import Topics from "./components/Topics";
+import ArticlePage from "./components/ArticlePage"
 import "./App.css";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
 				<Route path="/" element={<ArticlesList />} />
 				<Route path="/topic/:topic" element={<Topics topics={topics} />} />
 				<Route path="/articles" element={<ArticlesList />} />
+				<Route path="/articles/:article_id" element={<ArticlePage/>}/>
 			</Routes>
 		</div>
 	);
